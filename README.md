@@ -1,4 +1,5 @@
 # Pacman (web)
+
 This is an online game of Pacman
 ## Instructions
 Use the WASD or the arrow keys on your keyboard if you are on PC
