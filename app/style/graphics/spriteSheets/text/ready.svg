@@ -1,9 +1,20 @@
-<svg width="48" height="16" viewBox="0 0 48 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M42 10V11H43V10H42Z" fill="#FFFF00"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M1 11V4H7V5H8V8H6V9H7V10H8V11H5V10H4V9H3V11H1ZM3 8V5H6V7H5V8H3Z" fill="#FFFF00"/>
-<path d="M10 11H16V10H12V8H15V7H12V5H16V4H10V11Z" fill="#FFFF00"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M17 11V6H18V5H19V4H22V5H23V6H24V11H22V9H19V11H17ZM19 8V6H20V5H21V6H22V8H19Z" fill="#FFFF00"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M25 11V4H30V5H31V6H32V9H31V10H30V11H25ZM27 10V5H29V6H30V9H29V10H27Z" fill="#FFFF00"/>
-<path d="M36 8V11H38V8H39V7H40V4H38V7H36V4H34V7H35V8H36Z" fill="#FFFF00"/>
-<path d="M43 6V9H44V8H45V7H46V6H47V4H44V6H43Z" fill="#FFFF00"/>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 27.8.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 48 16" style="enable-background:new 0 0 48 16;" xml:space="preserve">
+<style type="text/css">
+	.st0{display:none;fill:#FFFF00;}
+	.st1{display:none;fill-rule:evenodd;clip-rule:evenodd;fill:#FFFF00;}
+	.st2{fill:#FFFFFF;}
+	.st3{font-family:'MobyBold';}
+	.st4{font-size:10px;}
+</style>
+<path class="st0" d="M42,10v1h1v-1H42z"/>
+<path class="st1" d="M1,11V4h6v1h1v3H6v1h1v1h1v1H5v-1H4V9H3v2H1z M3,8V5h3v2H5v1H3z"/>
+<path class="st0" d="M10,11h6v-1h-4V8h3V7h-3V5h4V4h-6V11z"/>
+<path class="st1" d="M17,11V6h1V5h1V4h3v1h1v1h1v5h-2V9h-3v2H17z M19,8V6h1V5h1v1h1v2H19z"/>
+<path class="st1" d="M25,11V4h5v1h1v1h1v3h-1v1h-1v1H25z M27,10V5h2v1h1v3h-1v1H27z"/>
+<path class="st0" d="M36,8v3h2V8h1V7h1V4h-2v3h-2V4h-2v3h1v1H36z"/>
+<path class="st0" d="M43,6v3h1V8h1V7h1V6h1V4h-3v2H43z"/>
+<text transform="matrix(1 0 0 1 1.9531 11)" class="st2 st3 st4">READY</text>
 </svg>
