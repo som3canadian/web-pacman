@@ -107,17 +107,24 @@ body {
 
     ._50 {
       width: 50%;
+      text-align: center;
     }
 
-    .column {
-      :first-child {
-        text-align: center;
-      }
+    // .column {
+    //   :first-child {
+    //     text-align: center;
+    //   }
 
-      :not(:first-child) {
-        margin-right: calc(50% - 3em);
-        text-align: right;
-      }
+    //   :not(:first-child) {
+    //     margin-right: calc(50% - 3em);
+    //     text-align: right;
+    //   }
+    // }
+    .current_score::before {
+      content: "SCORE: "
+    }
+    .high_score::before {
+      content:"HIGH SCORE:";
     }
   }
 

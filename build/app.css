@@ -90,12 +90,12 @@ body {
   .game-ui .top ._25 {
     width: 25%; }
   .game-ui .top ._50 {
-    width: 50%; }
-  .game-ui .top .column :first-child {
+    width: 50%;
     text-align: center; }
-  .game-ui .top .column :not(:first-child) {
-    margin-right: calc(50% - 3em);
-    text-align: right; }
+  .game-ui .top .current_score::before {
+    content: "SCORE: "; }
+  .game-ui .top .high_score::before {
+    content: "HIGH SCORE:"; }
   .game-ui .bottom {
     justify-content: space-between; }
     .game-ui .bottom .extra-lives {

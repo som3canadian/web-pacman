@@ -1128,6 +1128,7 @@ class GameCoordinator {
     this.pausedText = document.getElementById('paused-text');
     this.bottomRow = document.getElementById('bottom-row');
     this.movementButtons = document.getElementById('movement-buttons');
+    this.levelDisplay = document.getElementById('current-level');
 
     this.mazeArray = [
       ['XXXXXXXXXXXXXXXXXXXXXXXXXXXX'],
@@ -1263,6 +1264,7 @@ class GameCoordinator {
     }, 1000);
 
     this.reset();
+
     if (this.firstGame) {
       this.firstGame = false;
       this.init();
@@ -1514,6 +1516,7 @@ class GameCoordinator {
     this.allowPause = false;
     this.cutscene = true;
     this.highScore = localStorage.getItem('highScore');
+    this.highLevel = localStorage.getItem('highLevel') || localStorage.setItem('highLevel', '1');
 
     if (this.firstGame) {
       setInterval(() => {
@@ -1600,6 +1603,11 @@ class GameCoordinator {
         }
       });
     }
+
+    const level = this.level;
+    //this.levelDisplay.innerHTML = "Level: " + level;
+    this.levelDisplay.innerHTML = "Level: " + level + " (BEST: " + this.highLevel + ")";
+    //console.log(level)
 
     this.pointsDisplay.innerHTML = '00';
     this.highScoreDisplay.innerHTML = this.highScore || '00';
@@ -1990,6 +1998,7 @@ class GameCoordinator {
    */
   gameOver() {
     localStorage.setItem('highScore', this.highScore);
+    localStorage.setItem('highLevel', this.highLevel);
 
     new Timer(() => {
       this.displayText(
@@ -2100,6 +2109,15 @@ class GameCoordinator {
     this.removeTimer({ detail: { timer: this.ghostFlashTimer } });
 
     const imgBase = 'app/style//graphics/spriteSheets/maze/';
+
+    const level = this.level + 1;
+    this.levelDisplay.innerHTML = "Level: " + level + "(Best: " + this.highLevel + ")";
+    //console.log(level)
+    if (level > (this.highLevel || 1)) {
+      this.highLevel = level;
+      this.levelDisplay.innerHTML = "Level: " + level + "(Best: " + this.highLevel + ")";
+      localStorage.setItem('highLevel', this.highLevel);
+    }
 
     new Timer(() => {
       this.ghosts.forEach((ghost) => {
