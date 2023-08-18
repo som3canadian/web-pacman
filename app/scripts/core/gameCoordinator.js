@@ -406,7 +406,7 @@ class GameCoordinator {
     this.allowPause = false;
     this.cutscene = true;
     this.highScore = localStorage.getItem('highScore');
-    this.highLevel = localStorage.getItem('highLevel') || localStorage.setItem('highLevel', '1');
+    this.highLevel = localStorage.getItem('highLevel');
 
     if (this.firstGame) {
       setInterval(() => {
@@ -888,7 +888,6 @@ class GameCoordinator {
    */
   gameOver() {
     localStorage.setItem('highScore', this.highScore);
-    localStorage.setItem('highLevel', this.highLevel);
 
     new Timer(() => {
       this.displayText(
@@ -1000,14 +999,23 @@ class GameCoordinator {
 
     const imgBase = 'app/style//graphics/spriteSheets/maze/';
 
-    const level = this.level + 1;
-    this.levelDisplay.innerHTML = "Level: " + level + "(Best: " + this.highLevel + ")";
+    //const level = this.level + 1;
     //console.log(level)
-    if (level > (this.highLevel || 1)) {
-      this.highLevel = level;
-      this.levelDisplay.innerHTML = "Level: " + level + "(Best: " + this.highLevel + ")";
-      localStorage.setItem('highLevel', this.highLevel);
+    //this.levelDisplay.innerHTML = "Level: " + level + "(Best: " + this.highLevel + ")";
+
+    const level = this.level + 1;
+    let highLevel = parseInt(localStorage.getItem('highLevel'), 10) || 1;
+
+    // Check if the current level is higher than the highLevel
+    if (level >= highLevel) {
+      // Update the highLevel and store it in localStorage
+      highLevel = level;
+      localStorage.setItem('highLevel', highLevel);
     }
+    // Update the display
+    this.levelDisplay.innerHTML = "Level: " + level + " (Best: " + highLevel + ")";
+
+
 
     new Timer(() => {
       this.ghosts.forEach((ghost) => {
