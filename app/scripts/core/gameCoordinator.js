@@ -407,7 +407,7 @@ class GameCoordinator {
     this.allowPause = false;
     this.cutscene = true;
     this.highScore = localStorage.getItem('highScore');
-    this.highLevel = localStorage.getItem('highLevel');
+    this.highLevel = localStorage.getItem('highLevel') || localStorage.setItem('highLevel', '1');
 
     if (this.firstGame) {
       setInterval(() => {
@@ -1000,7 +1000,7 @@ class GameCoordinator {
 
     const imgBase = 'app/style//graphics/spriteSheets/maze/';
 
-    const currentHighLevel = parseInt(localStorage.getItem('highLevel'), 10) || 0;
+    const currentHighLevel = parseInt(localStorage.getItem('highLevel'), 10) || 1;
     const level = this.level + 1;
     //console.log(level)
     if (level > currentHighLevel) {
