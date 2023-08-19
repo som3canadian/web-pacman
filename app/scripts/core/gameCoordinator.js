@@ -148,7 +148,6 @@ class GameCoordinator {
     this.rightCover.style.right = '-50%';
     this.mainMenu.style.opacity = 0;
     this.gameStartButton.disabled = true;
-    this.highLevel = parseInt(localStorage.getItem('highLevel'), 10) || 0;
 
     setTimeout(() => {
       this.mainMenu.style.visibility = 'hidden';
@@ -408,7 +407,13 @@ class GameCoordinator {
     this.allowPause = false;
     this.cutscene = true;
     this.highScore = localStorage.getItem('highScore');
-    this.highLevel = localStorage.getItem('highLevel');
+
+    //const checkHighLevel = parseInt(localStorage.getItem('highLevel'), 10) || 0;
+    this.highLevel = localStorage.getItem('highLevel') || 0;
+    const level = this.level;
+    this.levelDisplay.innerHTML = "Level: " + level + " (BEST: " + this.highLevel + ")";
+    console.log(level);
+    console.log(this.highLevel);
 
     if (this.firstGame) {
       setInterval(() => {
@@ -495,12 +500,6 @@ class GameCoordinator {
         }
       });
     }
-
-
-    //const checkHighLevel = parseInt(localStorage.getItem('highLevel'), 10) || 0;
-    localStorage.setItem('highLevel', this.highLevel);
-    this.levelDisplay.innerHTML = "Level: " + this.level + " (BEST: " + this.highLevel + ")";
-    //console.log(level)
 
     this.pointsDisplay.innerHTML = '00';
     this.highScoreDisplay.innerHTML = this.highScore || '00';
