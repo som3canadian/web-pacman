@@ -140,6 +140,19 @@ class GameCoordinator {
     return scale - 1;
   }
 
+  checkThisLevel() {
+    this.highLevel = parseInt(localStorage.getItem('highLevel'), 10) || 0;
+    this.myLevel = this.level || 0;
+
+    console.log('currentLevel', this.myLevel);
+    console.log('highLevel', this.highLevel);
+
+    if (this.myLevel > this.highLevel) {
+      this.highLevel = this.myLevel;
+      localStorage.setItem('highLevel', this.highLevel.toString()); // Store as string
+    }
+    this.levelDisplay.innerHTML = "Level: " + this.myLevel + " (BEST: " + this.highLevel + ")";
+  }
   /**
    * Reveals the game underneath the loading covers and starts gameplay
    */
@@ -149,7 +162,7 @@ class GameCoordinator {
     this.mainMenu.style.opacity = 0;
     this.gameStartButton.disabled = true;
     //
-    this.highLevel = localStorage.getItem('highLevel') || 0;
+    this.checkThisLevel();
     //const level = this.level;
     //this.levelDisplay.innerHTML = "Level: " + level + " (BEST: " + this.highLevel + ")";
 
@@ -497,14 +510,6 @@ class GameCoordinator {
         }
       });
     }
-
-    //const checkHighLevel = parseInt(localStorage.getItem('highLevel'), 10) || 0;
-    this.highLevel = localStorage.getItem('highLevel');
-    localStorage.setItem('highLevel', this.highLevel);
-    const level = this.level;
-    this.levelDisplay.innerHTML = "Level: " + level + " (BEST: " + this.highLevel + ")";
-    //console.log(level);
-    //console.log(this.highLevel);
 
     this.pointsDisplay.innerHTML = '00';
     this.highScoreDisplay.innerHTML = this.highScore || '00';
