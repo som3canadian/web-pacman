@@ -148,6 +148,7 @@ class GameCoordinator {
     this.rightCover.style.right = '-50%';
     this.mainMenu.style.opacity = 0;
     this.gameStartButton.disabled = true;
+    this.highLevel = parseInt(localStorage.getItem('highLevel'), 10) || 0;
 
     setTimeout(() => {
       this.mainMenu.style.visibility = 'hidden';
