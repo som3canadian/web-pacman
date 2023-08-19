@@ -142,17 +142,12 @@ class GameCoordinator {
 
   checkThisLevel() {
     this.highLevel = parseInt(localStorage.getItem('highLevel'), 10) || 0;
-    this.myLevel = this.level || 0;
-
-    console.log('currentLevel', this.myLevel);
-    console.log('highLevel', this.highLevel);
-
-    if (this.myLevel > this.highLevel) {
-      this.highLevel = this.myLevel;
-      localStorage.setItem('highLevel', this.highLevel.toString()); // Store as string
-    }
+    this.myLevel = this.level || 1;
+    //console.log('currentLevel', this.myLevel);
+    //console.log('highLevel', this.highLevel);
     this.levelDisplay.innerHTML = "Level: " + this.myLevel + " (BEST: " + this.highLevel + ")";
   }
+
   /**
    * Reveals the game underneath the loading covers and starts gameplay
    */
@@ -999,15 +994,14 @@ class GameCoordinator {
     this.allowKeyPresses = false;
     this.soundManager.stopAmbience();
 
-    // const currentHighLevel = parseInt(localStorage.getItem('highLevel'), 10) || 0; // Default to 0 if null
-    const currentHighLevel = localStorage.getItem('highLevel');
-    const lastLevel = this.level;
-    if (lastLevel > currentHighLevel) {
-       this.highLevel = lastLevel;
-     }
-    const level = lastLevel + 1;
-    this.levelDisplay.innerHTML = `Level: ${level} (Best: ${this.highLevel})`;
-    localStorage.setItem('highLevel', this.highLevel);
+    this.checkThisLevel();
+    if (this.myLevel > this.highLevel) {
+      this.highLevel = this.myLevel;
+      localStorage.setItem('highLevel', this.highLevel); // Store as string
+    }
+    this.myLevel = this.myLevel + 1;
+    this.levelDisplay.innerHTML = "Level: " + this.myLevel + " (BEST: " + this.highLevel + ")";
+    //console.log(this.myLevel);
 
     this.entityList.forEach((entity) => {
       const entityRef = entity;
