@@ -1258,6 +1258,7 @@ class GameCoordinator {
     this.rightCover.style.right = '-50%';
     this.mainMenu.style.opacity = 0;
     this.gameStartButton.disabled = true;
+    this.highLevel = localStorage.getItem('highLevel') || 0;
 
     setTimeout(() => {
       this.mainMenu.style.visibility = 'hidden';
@@ -1519,7 +1520,7 @@ class GameCoordinator {
     this.highScore = localStorage.getItem('highScore');
 
     //const checkHighLevel = parseInt(localStorage.getItem('highLevel'), 10) || 0;
-    this.highLevel = localStorage.getItem('highLevel') || 0;
+    this.highLevel = localStorage.getItem('highLevel');
     localStorage.setItem('highLevel', this.highLevel);
     const level = this.level;
     this.levelDisplay.innerHTML = "Level: " + level + " (BEST: " + this.highLevel + ")";
