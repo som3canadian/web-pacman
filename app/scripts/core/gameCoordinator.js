@@ -410,10 +410,11 @@ class GameCoordinator {
 
     //const checkHighLevel = parseInt(localStorage.getItem('highLevel'), 10) || 0;
     this.highLevel = localStorage.getItem('highLevel') || 0;
+    localStorage.setItem('highLevel', this.highLevel);
     const level = this.level;
     this.levelDisplay.innerHTML = "Level: " + level + " (BEST: " + this.highLevel + ")";
-    console.log(level);
-    console.log(this.highLevel);
+    //console.log(level);
+    //console.log(this.highLevel);
 
     if (this.firstGame) {
       setInterval(() => {
