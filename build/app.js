@@ -2110,22 +2110,15 @@ class GameCoordinator {
 
     const imgBase = 'app/style//graphics/spriteSheets/maze/';
 
-    //const level = this.level + 1;
-    //console.log(level)
-    //this.levelDisplay.innerHTML = "Level: " + level + "(Best: " + this.highLevel + ")";
-
+    const currentHighLevel = parseInt(localStorage.getItem('highLevel'), 10) || 0;
     const level = this.level + 1;
-    let highLevel = parseInt(localStorage.getItem('highLevel'), 10) || 1;
-
-    // Check if the current level is higher than the highLevel
-    if (level >= highLevel) {
-      // Update the highLevel and store it in localStorage
-      highLevel = level;
-      localStorage.setItem('highLevel', highLevel);
+    //console.log(level)
+    if (level > currentHighLevel) {
+      // If so, update the high level in localStorage
+      this.highLevel = level;
+      localStorage.setItem('highLevel', this.highLeve);
     }
-    // Update the display
-    this.levelDisplay.innerHTML = "Level: " + level + " (Best: " + highLevel + ")";
-
+    this.levelDisplay.innerHTML = "Level: " + level + "(Best: " + this.highLevel + ")";
 
 
     new Timer(() => {
