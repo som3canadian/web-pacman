@@ -407,6 +407,7 @@ class GameCoordinator {
     this.allowPause = false;
     this.cutscene = true;
     this.highScore = localStorage.getItem('highScore');
+    this.highLevel = localStorage.getItem('highLevel');
 
     if (this.firstGame) {
       setInterval(() => {
@@ -495,8 +496,7 @@ class GameCoordinator {
     }
 
 
-    const checkHighLevel = parseInt(localStorage.getItem('highLevel'), 10) || 0;
-    this.highLevel = checkHighLevel;
+    //const checkHighLevel = parseInt(localStorage.getItem('highLevel'), 10) || 0;
     localStorage.setItem('highLevel', this.highLevel);
     this.levelDisplay.innerHTML = "Level: " + this.level + " (BEST: " + this.highLevel + ")";
     //console.log(level)
@@ -1003,13 +1003,14 @@ class GameCoordinator {
 
 
     // const currentHighLevel = parseInt(localStorage.getItem('highLevel'), 10) || 0; // Default to 0 if null
-    // let lastLevel = this.level;
-    // if (lastLevel > currentHighLevel) {
-    //   this.highLevel = lastLevel;
-    // }
-    // localStorage.setItem('highLevel', this.highLevel);
-    const level = this.level + 1;
+    const currentHighLevel = localStorage.getItem('highLevel');
+    const lastLevel = this.level;
+    if (lastLevel > currentHighLevel) {
+       this.highLevel = lastLevel;
+     }
+    const level = lastLevel + 1;
     this.levelDisplay.innerHTML = `Level: ${level} (Best: ${this.highLevel})`;
+    localStorage.setItem('highLevel', this.highLevel);
 
 
     new Timer(() => {
