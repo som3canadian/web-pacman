@@ -88,14 +88,20 @@ body {
   .game-ui .row {
     display: flex; }
   .game-ui .top ._25 {
-    width: 25%; }
+    /**width: 25%;**/
+    width: 50%; }
   .game-ui .top ._50 {
     width: 50%; }
   .game-ui .top .column :first-child {
     text-align: center; }
   .game-ui .top .column :not(:first-child) {
-    margin-right: calc(50% - 3em);
-    text-align: right; }
+    /**margin-right: calc(50% - 3em);
+        text-align: right;**/
+    text-align: center; }
+  .game-ui .top .current_score::before {
+    content: "SCORE: "; }
+  .game-ui .top .high_score::before {
+    content: "HIGH SCORE:"; }
   .game-ui .bottom {
     justify-content: space-between; }
     .game-ui .bottom .extra-lives {

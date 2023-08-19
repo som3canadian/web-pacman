@@ -18,6 +18,7 @@ class GameCoordinator {
     this.pausedText = document.getElementById('paused-text');
     this.bottomRow = document.getElementById('bottom-row');
     this.movementButtons = document.getElementById('movement-buttons');
+    this.levelDisplay = document.getElementById('current-level');
 
     this.mazeArray = [
       ['XXXXXXXXXXXXXXXXXXXXXXXXXXXX'],
@@ -404,6 +405,7 @@ class GameCoordinator {
     this.allowPause = false;
     this.cutscene = true;
     this.highScore = localStorage.getItem('highScore');
+    this.highLevel = parseInt(localStorage.getItem('highLevel'), 10) || 0;
 
     if (this.firstGame) {
       setInterval(() => {
@@ -491,6 +493,7 @@ class GameCoordinator {
       });
     }
 
+    this.levelDisplay.innerHTML = this.highLevel;
     this.pointsDisplay.innerHTML = '00';
     this.highScoreDisplay.innerHTML = this.highScore || '00';
     this.clearDisplay(this.fruitDisplay);
