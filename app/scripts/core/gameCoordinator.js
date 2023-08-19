@@ -407,7 +407,6 @@ class GameCoordinator {
     this.allowPause = false;
     this.cutscene = true;
     this.highScore = localStorage.getItem('highScore');
-    this.highLevel = localStorage.getItem('highLevel');
 
     if (this.firstGame) {
       setInterval(() => {
@@ -495,9 +494,12 @@ class GameCoordinator {
       });
     }
 
-    const level = this.level;
-    //this.levelDisplay.innerHTML = "Level: " + level;
-    this.levelDisplay.innerHTML = "Level: " + level + " (BEST: " + this.highLevel + ")";
+
+    const checkHighLevel = parseInt(localStorage.getItem('highLevel'), 10) || 0;
+    this.highLevel = checkHighLevel;
+    localStorage.setItem('highLevel', this.highLevel);
+
+    this.levelDisplay.innerHTML = "Level: " + this.level + " (BEST: " + this.highLevel + ")";
     //console.log(level)
 
     this.pointsDisplay.innerHTML = '00';
@@ -593,7 +595,6 @@ class GameCoordinator {
     if (initialStart) {
       this.soundManager.play('game_start');
     }
-    this.highLevel = localStorage.getItem('highLevel') || localStorage.setItem('highLevel', '1');
 
     this.scaredGhosts = [];
     this.eyeGhosts = 0;
@@ -1001,15 +1002,15 @@ class GameCoordinator {
 
     const imgBase = 'app/style//graphics/spriteSheets/maze/';
 
-    const currentHighLevel = parseInt(localStorage.getItem('highLevel'), 10) || 1;
-    const level = this.level + 1;
-    //console.log(level)
-    if (level > currentHighLevel) {
-      // If so, update the high level in localStorage
-      this.highLevel = level;
-      localStorage.setItem('highLevel', this.highLeve);
+
+    let currentHighLevel = parseInt(localStorage.getItem('highLevel'), 10) || 0; // Default to 0 if null
+    let lastLevel = this.level;
+    if (lastLevel > currentHighLevel) {
+      this.highLevel = lastLevel;
+      localStorage.setItem('highLevel', this.highLevel);
     }
-    this.levelDisplay.innerHTML = "Level: " + level + "(Best: " + this.highLevel + ")";
+    const level = lastLevel + 1;
+    this.levelDisplay.innerHTML = `Level: ${level} (Best: ${this.highLevel})`;
 
 
     new Timer(() => {
