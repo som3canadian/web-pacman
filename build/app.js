@@ -1463,6 +1463,9 @@ class GameCoordinator {
       - loadingPacman.scrollWidth;
     const loadingDotMask = document.getElementById('loading-dot-mask');
 
+    this.highLevel = parseInt(localStorage.getItem('highLevel'), 10) || 0;
+    localStorage.setItem('highLevel', this.highLevel);
+
     const gameCoordRef = gameCoord;
 
     return new Promise((resolve, reject) => {
