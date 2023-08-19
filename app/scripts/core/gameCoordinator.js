@@ -353,9 +353,6 @@ class GameCoordinator {
       - loadingPacman.scrollWidth;
     const loadingDotMask = document.getElementById('loading-dot-mask');
 
-    this.highLevel = parseInt(localStorage.getItem('highLevel'), 10) || 0;
-    localStorage.setItem('highLevel', this.highLevel);
-
     const gameCoordRef = gameCoord;
 
     return new Promise((resolve, reject) => {
@@ -1005,12 +1002,12 @@ class GameCoordinator {
     const imgBase = 'app/style//graphics/spriteSheets/maze/';
 
 
-    const currentHighLevel = parseInt(localStorage.getItem('highLevel'), 10) || 0; // Default to 0 if null
-    let lastLevel = this.level;
-    if (lastLevel > currentHighLevel) {
-      this.highLevel = lastLevel;
-    }
-    localStorage.setItem('highLevel', this.highLevel);
+    // const currentHighLevel = parseInt(localStorage.getItem('highLevel'), 10) || 0; // Default to 0 if null
+    // let lastLevel = this.level;
+    // if (lastLevel > currentHighLevel) {
+    //   this.highLevel = lastLevel;
+    // }
+    // localStorage.setItem('highLevel', this.highLevel);
     const level = this.level + 1;
     this.levelDisplay.innerHTML = `Level: ${level} (Best: ${this.highLevel})`;
 
