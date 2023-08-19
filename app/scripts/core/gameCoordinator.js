@@ -385,8 +385,8 @@ class GameCoordinator {
         element.src = source;
 
         if (type === 'audio') {
-          //element.load();
-          element.src = source;
+          element.load();
+          //element.src = source;
         }
       });
     });
