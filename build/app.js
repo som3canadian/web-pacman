@@ -1258,7 +1258,10 @@ class GameCoordinator {
     this.rightCover.style.right = '-50%';
     this.mainMenu.style.opacity = 0;
     this.gameStartButton.disabled = true;
+    //
     this.highLevel = localStorage.getItem('highLevel') || 0;
+    //const level = this.level;
+    //this.levelDisplay.innerHTML = "Level: " + level + " (BEST: " + this.highLevel + ")";
 
     setTimeout(() => {
       this.mainMenu.style.visibility = 'hidden';
@@ -1519,14 +1522,6 @@ class GameCoordinator {
     this.cutscene = true;
     this.highScore = localStorage.getItem('highScore');
 
-    //const checkHighLevel = parseInt(localStorage.getItem('highLevel'), 10) || 0;
-    this.highLevel = localStorage.getItem('highLevel');
-    localStorage.setItem('highLevel', this.highLevel);
-    const level = this.level;
-    this.levelDisplay.innerHTML = "Level: " + level + " (BEST: " + this.highLevel + ")";
-    //console.log(level);
-    //console.log(this.highLevel);
-
     if (this.firstGame) {
       setInterval(() => {
         this.collisionDetectionLoop();
@@ -1612,6 +1607,14 @@ class GameCoordinator {
         }
       });
     }
+
+    //const checkHighLevel = parseInt(localStorage.getItem('highLevel'), 10) || 0;
+    this.highLevel = localStorage.getItem('highLevel');
+    localStorage.setItem('highLevel', this.highLevel);
+    const level = this.level;
+    this.levelDisplay.innerHTML = "Level: " + level + " (BEST: " + this.highLevel + ")";
+    //console.log(level);
+    //console.log(this.highLevel);
 
     this.pointsDisplay.innerHTML = '00';
     this.highScoreDisplay.innerHTML = this.highScore || '00';
@@ -2101,6 +2104,16 @@ class GameCoordinator {
     this.allowKeyPresses = false;
     this.soundManager.stopAmbience();
 
+    // const currentHighLevel = parseInt(localStorage.getItem('highLevel'), 10) || 0; // Default to 0 if null
+    const currentHighLevel = localStorage.getItem('highLevel');
+    const lastLevel = this.level;
+    if (lastLevel > currentHighLevel) {
+       this.highLevel = lastLevel;
+     }
+    const level = lastLevel + 1;
+    this.levelDisplay.innerHTML = `Level: ${level} (Best: ${this.highLevel})`;
+    localStorage.setItem('highLevel', this.highLevel);
+
     this.entityList.forEach((entity) => {
       const entityRef = entity;
       entityRef.moving = false;
@@ -2112,18 +2125,6 @@ class GameCoordinator {
     this.removeTimer({ detail: { timer: this.ghostFlashTimer } });
 
     const imgBase = 'app/style//graphics/spriteSheets/maze/';
-
-
-    // const currentHighLevel = parseInt(localStorage.getItem('highLevel'), 10) || 0; // Default to 0 if null
-    const currentHighLevel = localStorage.getItem('highLevel');
-    const lastLevel = this.level;
-    if (lastLevel > currentHighLevel) {
-       this.highLevel = lastLevel;
-     }
-    const level = lastLevel + 1;
-    this.levelDisplay.innerHTML = `Level: ${level} (Best: ${this.highLevel})`;
-    localStorage.setItem('highLevel', this.highLevel);
-
 
     new Timer(() => {
       this.ghosts.forEach((ghost) => {
