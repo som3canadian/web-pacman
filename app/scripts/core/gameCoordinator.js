@@ -407,7 +407,7 @@ class GameCoordinator {
     this.allowPause = false;
     this.cutscene = true;
     this.highScore = localStorage.getItem('highScore');
-    this.highLevel = localStorage.getItem('highLevel') || localStorage.setItem('highLevel', '1');
+    this.highLevel = localStorage.getItem('highLevel');
 
     if (this.firstGame) {
       setInterval(() => {
@@ -593,6 +593,7 @@ class GameCoordinator {
     if (initialStart) {
       this.soundManager.play('game_start');
     }
+    this.highLevel = localStorage.getItem('highLevel') || localStorage.setItem('highLevel', '1');
 
     this.scaredGhosts = [];
     this.eyeGhosts = 0;
