@@ -152,10 +152,10 @@ body {
   margin-top: 25vh; }
 
 .game-start {
-  background-color: #fcc73f;
+  background-color: #ff0049;
   border: 5px solid #231f20;
+  box-shadow: 5px 5px #3beabc;
   border-radius: 10px;
-  box-shadow: 5px 5px #ee2a29;
   color: #231f20;
   cursor: pointer;
   font-size: 48px;

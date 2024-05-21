@@ -195,10 +195,13 @@ body {
 }
 
 .game-start {
-  background-color: $logo-yellow;
+  // background-color: $logo-yellow;
+  // border: 5px solid $logo-black;
+  // box-shadow: 5px 5px $logo-red;
+  background-color: #3beabc;
   border: 5px solid $logo-black;
+  box-shadow: 5px 5px #ff0049;
   border-radius: 10px;
-  box-shadow: 5px 5px $logo-red;
   color: $logo-black;
   cursor: pointer;
   font-size: 48px;
