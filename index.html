@@ -30,7 +30,7 @@
       <div id='preload-div' class='preload-div'></div>
 
       <div id='main-menu-container' class='main-menu-container'>
-        <img id='logo' class='logo' src='app/style/graphics/pacman_logo.png'>
+        <img id='logo' class='logo' src='app/style/graphics/logoyackpacman3.png'>
         <button id='game-start' class='game-start'>
           PLAY
         </button>
@@ -51,56 +51,60 @@
         PAUSED
       </div>
 
-      <div id='game-ui' class='game-ui'>
-        <div id='row-top' class='row top'>
-          <!-- <div class='column _25'> -->
-          <div class='column _50'>
-            <div class='one-up'>1UP</div>
-            <div class="current_score" id='points-display' style="margin-top: 20px;"></div>
+      <div id="game-container">
+        <div id='game-ui' class='game-ui'>
+          <div id='row-top' class='row top' style="margin-bottom: 10px;">
+            <!-- <div class='column _25'> -->
+            <div class='column _50'>
+              <div class='one-up'>1UP</div>
+              <div class="current_score" id='points-display' style="margin-top: 20px;"></div>
+            </div>
+            <div class='column _50'>
+              <!-- <div>HIGH SCORE</div> -->
+              <div class="high_score" id='high-score-display'></div>
+              <div id='current-level' style="margin-top: 20px;"></div>
+            </div>
           </div>
-          <div class='column _50'>
-            <!-- <div>HIGH SCORE</div> -->
-            <div class="high_score" id='high-score-display'></div>
-            <div id='current-level' style="margin-top: 20px;"></div>
+
+          <div id='maze' class='maze'>
+            <img id='maze-img' class='maze-img' src='app/style//graphics/spriteSheets/maze/maze_blue.svg'>
+            <div id='maze-cover' class='maze-cover'></div>
+            <div id='dot-container'></div>
+            <p id='pacman' class='pacman'></p>
+            <p id='pacman-arrow' class='pacman'></p>
+            <p id='clyde' class='ghost'></p>
+            <p id='inky' class='ghost'></p>
+            <p id='pinky' class='ghost'></p>
+            <p id='blinky' class='ghost'></p>
+          </div>
+
+          <div id='bottom-row' class='row bottom'>
+            <div id='extra-lives' class='extra-lives'></div>
+            <div id='fruit-display' class='fruit-display'></div>
           </div>
         </div>
 
-        <div id='maze' class='maze'>
-          <img id='maze-img' class='maze-img' src='app/style//graphics/spriteSheets/maze/maze_blue.svg'>
-          <div id='maze-cover' class='maze-cover'></div>
-          <div id='dot-container'></div>
-          <p id='pacman' class='pacman'></p>
-          <p id='pacman-arrow' class='pacman'></p>
-          <p id='clyde' class='ghost'></p>
-          <p id='inky' class='ghost'></p>
-          <p id='pinky' class='ghost'></p>
-          <p id='blinky' class='ghost'></p>
-        </div>
-
-        <div id='bottom-row' class='row bottom'>
-          <div id='extra-lives' class='extra-lives'></div>
-          <div id='fruit-display' class='fruit-display'></div>
-        </div>
-      </div>
-
-      <div id='movement-buttons' class='movement-buttons'>
-        <div class='row'>
-          <button id='button-up' class='button-up'>
-            <i class='material-icons'>keyboard_arrow_up</i>
-          </button>
-        </div>
-        <div class='row'>
-          <button id='button-left' class='button-left'>
-            <i class='material-icons'>keyboard_arrow_left</i>
-          </button>
-          <button id='button-right' class='button-right'>
-            <i class='material-icons'>keyboard_arrow_right</i>
-          </button>
-        </div>
-        <div class='row'>
-          <button id='button-down' class='button-down'>
-            <i class='material-icons'>keyboard_arrow_down</i>
-          </button>
+        <div id='scrollable-container'>
+          <div id='movement-buttons' class='movement-buttons'>
+            <div class='row'>
+              <button id='button-up' class='button-up'>
+                <i class='material-icons'>keyboard_arrow_up</i>
+              </button>
+            </div>
+            <div class='row'>
+              <button id='button-left' class='button-left'>
+                <i class='material-icons'>keyboard_arrow_left</i>
+              </button>
+              <button id='button-right' class='button-right'>
+                <i class='material-icons'>keyboard_arrow_right</i>
+              </button>
+            </div>
+            <div class='row'>
+              <button id='button-down' class='button-down'>
+                <i class='material-icons'>keyboard_arrow_down</i>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
 

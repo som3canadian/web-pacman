@@ -567,7 +567,7 @@ class GameCoordinator {
 
   setUiDimensions() {
     this.gameUi.style.fontSize = `${this.scaledTileSize}px`;
-    this.rowTop.style.marginBottom = `${this.scaledTileSize}px`;
+    // this.rowTop.style.marginBottom = `${this.scaledTileSize}px`;
   }
 
   /**

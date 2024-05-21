@@ -189,7 +189,8 @@ body {
 }
 
 .logo {
-  height: 200px;
+  // height: 200px;
+  height: 350px;
   margin-top: 25vh;
 }
 
@@ -289,14 +290,35 @@ body {
 ._90 { left: 90%; }
 ._95 { left: 95%; }
 
+#game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+#game-ui {
+  position: sticky;
+  top: 10px; /* This will make it stick to the top of the container */
+}
+
+#scrollable-container {
+  overflow-y: auto; /* This makes the container scrollable */
+  // height: 100%; /* Adjust this as needed */
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  width: 100%;
+}
+
 .movement-buttons {
   align-items: center;
-  bottom: 0;
+  bottom: 20px;
   display: flex;
   flex-direction: column;
   height: 34%;
   left: 0;
-  position: fixed;
+  // position: fixed;
   width: 100%;
 
   .row {
@@ -307,10 +329,11 @@ body {
 
   button {
     background: transparent;
-    border: 3px solid $blue;
+    // border: 3px solid $blue;
     border-radius: 5px;
     color: $blue;
     height: 7vh;
+    width: 10vh;
     outline: none;
     padding: 0;
     user-select: none;
@@ -326,29 +349,40 @@ body {
     border-bottom: 0;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
+    width: 17vh;
+    height: 8vh;
+    // margin-top: calc(8vh - 6px);
   }
 
   .button-left {
     border-bottom-right-radius: 0;
     border-right: 0;
     border-top-right-radius: 0;
-    margin-right: calc(7vh - 6px);
+    margin-right: calc(13vh - 6px);
+    height: 15vh;
+    width: 12vh;
   }
 
   .button-right {
     border-bottom-left-radius: 0;
     border-left: 0;
     border-top-left-radius: 0;
+    margin-left: calc(13vh - 6px);
+    height: 15vh;
+    width: 12vh;
   }
 
   .button-down {
     border-top: 0;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
+    width: 17vh;
+    height: 8vh;
+    // margin-bottom: calc(8vh - 6px);
   }
 
   .material-icons {
-    font-size: 7vh;
+    font-size: 9vh;
     margin: -3px;
   }
 }

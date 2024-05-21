@@ -148,7 +148,7 @@ body {
   z-index: 5; }
 
 .logo {
-  height: 200px;
+  height: 350px;
   margin-top: 25vh; }
 
 .game-start {
@@ -273,14 +273,32 @@ body {
 ._95 {
   left: 95%; }
 
+#game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative; }
+
+#game-ui {
+  position: sticky;
+  top: 10px;
+  /* This will make it stick to the top of the container */ }
+
+#scrollable-container {
+  overflow-y: auto;
+  /* This makes the container scrollable */
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  width: 100%; }
+
 .movement-buttons {
   align-items: center;
-  bottom: 0;
+  bottom: 20px;
   display: flex;
   flex-direction: column;
   height: 34%;
   left: 0;
-  position: fixed;
   width: 100%; }
   .movement-buttons .row {
     display: flex;
@@ -288,10 +306,10 @@ body {
     margin-bottom: -3px; }
   .movement-buttons button {
     background: transparent;
-    border: 3px solid #2121ff;
     border-radius: 5px;
     color: #2121ff;
     height: 7vh;
+    width: 10vh;
     outline: none;
     padding: 0;
     user-select: none; }
@@ -300,22 +318,31 @@ body {
   .movement-buttons .button-up {
     border-bottom: 0;
     border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0; }
+    border-bottom-right-radius: 0;
+    width: 17vh;
+    height: 8vh; }
   .movement-buttons .button-left {
     border-bottom-right-radius: 0;
     border-right: 0;
     border-top-right-radius: 0;
-    margin-right: calc(7vh - 6px); }
+    margin-right: calc(13vh - 6px);
+    height: 15vh;
+    width: 12vh; }
   .movement-buttons .button-right {
     border-bottom-left-radius: 0;
     border-left: 0;
-    border-top-left-radius: 0; }
+    border-top-left-radius: 0;
+    margin-left: calc(13vh - 6px);
+    height: 15vh;
+    width: 12vh; }
   .movement-buttons .button-down {
     border-top: 0;
     border-top-left-radius: 0;
-    border-top-right-radius: 0; }
+    border-top-right-radius: 0;
+    width: 17vh;
+    height: 8vh; }
   .movement-buttons .material-icons {
-    font-size: 7vh;
+    font-size: 9vh;
     margin: -3px; }
 
 @media (orientation: landscape) {
